@@ -1,3 +1,16 @@
+// const post = (model)=> async(req, res)=>{
+//     try{
+//         const user_id = req.user._id;
+//         const item = await model.create({
+//             title : req.body.title,
+//             price : req.body.price,
+//             user_id : user_id,
+//         });
+//         return res.status(201).send(item);
+//     }catch(err){
+//         return res.status(500).send({Error : err.message});
+//     }
+// }
 
 
 const getAll = (model)=> async(req, res)=>{

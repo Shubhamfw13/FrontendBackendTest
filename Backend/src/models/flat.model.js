@@ -12,6 +12,6 @@ const flatSchema = new mongoose.Schema({
     versionKey : false
 })
 
-
+// flat => flat id , resident_type, block ,number, multiple resident
 
 module.exports = mongoose.model("flat", flatSchema);

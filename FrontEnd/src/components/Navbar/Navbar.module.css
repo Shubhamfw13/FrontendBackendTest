@@ -1,0 +1,13 @@
+.headerbtn{
+    display: flex;
+    justify-content: space-around;
+margin-left: 20%;
+}
+
+.link{
+    text-decoration: none;
+}
+
+h1{
+    text-align: center;
+}
