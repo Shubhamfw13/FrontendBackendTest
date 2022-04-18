@@ -1,7 +1,6 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
-
 const verifyToken = (token) => {
   return new Promise((resolve, reject) => {
     jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
@@ -10,8 +9,6 @@ const verifyToken = (token) => {
     });
   });
 };
-
-
 
 module.exports = async (req, res, next) => {
   if (!req.headers.authorization)
@@ -29,7 +26,6 @@ module.exports = async (req, res, next) => {
   // then we will call jwt to verify the token
   let user;
 
-  // console.log("user")
   try {
     user = await verifyToken(token);
   } catch (err) {
@@ -37,20 +33,9 @@ module.exports = async (req, res, next) => {
       message: "Authorization token is not provided or is not valid",
     });
   }
-  
+
   // if token is valid then we will put the user retrieved from the token in the req object
   req.user = user.user;
-  
 
-  // user : {
-  //   user : {
-  //     _id : "_84375648375604237";     
-  //     name : "Abhishek";
-  //     email : "achoubey473@gmail.com";
-  //     password : "475yirdm9";      
-  //   }
-  // }
-  
-  // console.log(user)
   return next();
 };
